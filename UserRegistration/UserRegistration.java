@@ -28,6 +28,11 @@ public class UserRegistration {
         patterResult(emailPattern);
     }
 
+    public static void phoneNumberCheck(String name){
+        boolean emailPattern = Pattern.matches("^[0-9]{2} [0-9]{10}",name);
+        patterResult(emailPattern);
+    }
+
     public static void main(String[] args) {
         Scanner scr = new Scanner(System.in);
         System.out.println("Please Enter FirstName");
