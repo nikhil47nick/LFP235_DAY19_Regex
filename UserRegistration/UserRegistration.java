@@ -24,12 +24,23 @@ public class UserRegistration {
     }
 
     public static void emailCheck(String name){
-        boolean emailPattern = Pattern.matches("[a-z0-9.]+@[a-z0-9.]+.[a-z]{2,4}",name);
+        boolean emailPattern = Pattern.matches("^(?=.*[a-z])(?=.*[0-9])(?=.*[._-])[a-z0-9._-]*[@](?=.*[a-z])(?=.*[0-9])(?=.*[.])[a-z0-9.]+[a-z]{2,4}$",name);
+        patterResult(emailPattern);
+    }
+
+    public static void phoneNumberCheck(String name){
+        boolean numberPattern = Pattern.matches("^[0-9]{2} [0-9]{10}",name);
+        patterResult(numberPattern);
+    }
+
+    public static void passwordCheck(String name){
+        boolean emailPattern = Pattern.matches("(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^\\d\\w])[A-Za-z0-9#?!@$%^&*-]{8,}",name);
         patterResult(emailPattern);
     }
 
     public static void main(String[] args) {
         Scanner scr = new Scanner(System.in);
+        passwordCheck(scr.next());
         System.out.println("Please Enter FirstName");
         firstNameCheck(scr.next());
         System.out.println("Please Enter LastName");
